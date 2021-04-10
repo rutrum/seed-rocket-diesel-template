@@ -1,2 +1,7 @@
 /target
 Cargo.lock
+/web/Cargo.lock
+/api/Cargo.lock
+/web/target
+/web/pkg
+/api/target

@@ -1,7 +1,10 @@
-#[cfg(test)]
-mod tests {
-    #[test]
-    fn it_works() {
-        assert_eq!(2 + 2, 4);
-    }
-}
+#[cfg(feature = "database")]
+#[macro_use]
+extern crate diesel;
+
+// Diesel schema
+#[cfg(feature = "database")]
+pub mod schema;
+
+// Models
+pub mod student;
