@@ -1,0 +1,79 @@
+$row-color-odd: peachpuff;
+$row-color-even: papayawhip;
+
+body {
+    background-color: whitesmoke;
+    width: 100%;
+
+    font-family: helvetica;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    table {
+        border-collapse: collapse;
+
+        td, th {
+            padding: 10px;
+        }
+
+        td {
+            height: 2em;
+
+            &:first-child {
+                color: lightslategrey;
+            }
+            
+            // Edit and delete cells
+            &:nth-last-child(-n+2) {
+                visibility: hidden;
+                cursor: pointer;
+
+                &:hover {
+                    font-style: italic;
+                }
+            }
+        }
+
+        tr {
+            &:nth-child(2n+1) {
+                td:nth-child(-n+3) {
+                    background-color: $row-color-odd;
+                }
+            }
+
+            &:nth-child(2n) {
+                td:nth-child(-n+3) {
+                    background-color: $row-color-even;
+                }
+            }
+
+            &:first-child {
+                background-color: lightsteelblue;
+            }
+
+            &:hover {
+                td:nth-last-child(-n+2) {
+                    visibility: visible;
+                }
+            }
+        }
+    }
+}
+
+.create-new-button {
+    text-align: center;
+    background-color: $row-color-odd;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.form {
+}
+
+.hide {
+    display: none;
+}

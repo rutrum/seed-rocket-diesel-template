@@ -29,3 +29,11 @@ serve: web
 # `tree` but ignores build directories
 tree:
     tree -I "pkg|target|migrations" --dirsfirst
+
+# compiles scss using `grass`
+css:
+    (cd web; grass scss/index.scss > index.css)
+
+# run `just css` on changes to `web/scss`
+watch-css:
+    watchexec -w web/scss -- just css

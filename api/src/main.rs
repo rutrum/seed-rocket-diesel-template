@@ -6,6 +6,7 @@ extern crate rocket_contrib;
 
 use rocket::http::Status;
 use rocket_contrib::json::Json;
+use rocket_cors::{AllowedOrigins, Error};
 
 use api::db;
 
@@ -57,7 +58,11 @@ mod student {
     }
 }
 
-fn main() {
+fn main() -> Result<(), Error> {
+    let cors = rocket_cors::CorsOptions {
+        allowed_origins: AllowedOrigins::all(),
+        ..Default::default()
+    }.to_cors()?;
     rocket::ignite()
         .mount("/", routes![
             test,
@@ -66,5 +71,8 @@ fn main() {
             student::update,
             student::delete,
         ])
+        .attach(cors)
         .launch();
+
+    Ok(())
 }

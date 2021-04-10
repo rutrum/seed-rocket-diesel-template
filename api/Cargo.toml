@@ -9,5 +9,6 @@ edition = "2018"
 [dependencies]
 seed-rocket-diesel-template = { path = "../", features = ["database"] }
 rocket = { version = "0.4.5" }
+rocket_cors = "0.5.2"
 rocket_contrib = { version = "0.4.5" }
 diesel = { version = "1.4.5" }

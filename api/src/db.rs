@@ -26,7 +26,9 @@ pub mod student {
     }
 
     pub fn update(conn: &SqliteConnection, item: Student) -> Result<usize> {
+        use schema::student::dsl::*;
         diesel::update(schema::student::table)
+            .filter(id.eq(item.id))
             .set(&item)
             .execute(conn)
     }

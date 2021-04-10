@@ -29,7 +29,7 @@ pub async fn put_student(item: Student) -> Result<Response> {
         .await
 }
 
-pub async fn delete_student(item: NewStudent) -> Result<Response> {
+pub async fn delete_student(item: Student) -> Result<Response> {
     fetch::Request::new(format!("{}/student", API_URL))
         .method(Method::Delete)
         .json(&item)?
